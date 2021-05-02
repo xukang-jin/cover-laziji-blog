@@ -4,16 +4,16 @@ import token from './modules/token'
 import user from './modules/user'
 import configuration from './modules/configuration'
 import getters from './getters'
-
+console.log("getters", getters)
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules: {
-        token,
-        user,
-        configuration
-    },
-    getters
+  modules: {
+    token,
+    user,
+    configuration
+  },
+  getters
 })
 
 export default store
