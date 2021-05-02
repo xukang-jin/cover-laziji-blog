@@ -7,8 +7,8 @@
           :key="item.path"
           :index="item.path"
         >
-          <i :class="item.meta.icon"></i>
-          <span slot="title">{{ item.meta.title }}</span>
+          <i :class="item.meta ? item.meta.icon :''"></i>
+          <span slot="title">{{ item.meta ? item.meta.title :''}}</span>
         </el-menu-item>
       </el-menu>
     </el-card>
@@ -39,30 +39,30 @@
         >
         </el-alert>
       </div>
-    </el-card>
+    <!-- </el-card> -->
     <token-dialog ref="tokenDialog"></token-dialog>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-// import { constantRouterMap } from '@/router'
-// import TokenDialog from '@/views/common/TokenDialog'
+import { constantRouterMap } from "@/router";
+import TokenDialog from "@/views/common/TokenDialog";
 export default {
   components: {
-    // TokenDialog
+    TokenDialog,
   },
   data() {
     return {
-      constantRouterMap: {},
+      constantRouterMap,
       active: "",
       parentUrl: "",
       menuList: [],
     };
   },
-  computed: {
-    ...mapGetters(["token", "githubUsername", "mini"]),
-  },
+  // computed: {
+  //   ...mapGetters(["token", "githubUsername", "mini"]),
+  // },
   mounted() {
     let arr = this.$route.path.split("/");
     this.active = "/" + arr[1] + "/" + arr[2];
@@ -77,6 +77,7 @@ export default {
     cancellation() {
       this.$store.dispatch("Cancellation");
     },
+    ...mapGetters(["token", "githubUsername", "mini"]),
   },
 };
 </script>

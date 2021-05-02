@@ -13,6 +13,7 @@
     "js-base64": "^2.4.3",
     "js-cookie": "2.2.0",
     "js-sha1": "^0.6.0",
+    "less-loader": "5.0.0",
     "mavon-editor": "^2.5.2",
     "vant": "1.1.2",
     "vue": "^2.5.2",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0"
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "less": "^4.1.1"
   }
 }
