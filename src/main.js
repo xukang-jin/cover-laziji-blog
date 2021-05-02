@@ -33,11 +33,11 @@ export default function (Vue, { router, head, isClient }) {
   }
 
   Vue.prototype.$setTitle = function (title) {
-    if (title) {
-      document.title = store.state.configuration.htmlTitle + " - " + title
-    } else {
-      document.title = store.state.configuration.htmlTitle
-    }
+    // if (title) {
+    //   document.title = store.state.configuration.htmlTitle + " - " + title
+    // } else {
+    //   document.title = store.state.configuration.htmlTitle
+    // }
   }
   Vue.prototype.$share = function (message) {
     if (!message) {

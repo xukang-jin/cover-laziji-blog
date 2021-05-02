@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from '../store/index'
 import Router from 'vue-router'
 import Error404 from '@/views/error/Error404'
-import Layout from '@/views/layout/Layout'
+import Layout from '@/pages/Index'
 
 import NewMain from '@/views/new/Main'
 import SocialMain from '@/views/social/Main'
@@ -21,7 +21,6 @@ import HelperMain from '@/views/helper/Main'
 Vue.use(Router)
 
 export const constantRouterMap = [
-
   {
     path: '/user/new',
     redirect: '/user/new/main',

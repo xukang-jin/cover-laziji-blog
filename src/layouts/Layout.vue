@@ -213,6 +213,7 @@
     </section>
   </div>
 </template>
+
 <script>
 import { mapGetters } from "vuex";
 import Sidebar from "./components/Sidebar";
@@ -239,29 +240,10 @@ export default {
         active: "",
       },
       randomIcon: [],
+      ...this.$static.pageConfig.edges.node[0],
     };
   },
-  // computed: {
-  //     ...mapGetters([
-  //         'githubUsername',
-  //         'blogTitle',
-  //         'blogDescribe',
-  //         'avatarUrl',
-  //         'name',
-  //         'location',
-  //         'blog',
-  //         'fontColor',
-  //         'useBackgroundImage',
-  //         'backgroundColorLeft',
-  //         'backgroundColorRight',
-  //         'audioUrl',
-  //         'mini',
-  //         'followersTotal',
-  //         'followingTotal',
-  //         'audioAutoPlay',
-  //         'webSites'
-  //     ])
-  // },
+  computed: {},
   watch: {
     "$refs.music.currentTime": function () {
       console.log(this.$refs.music.currentTime);
@@ -366,25 +348,25 @@ export default {
       }
       this.$refs.music.volume = this.music.volume / 100;
     },
-    ...mapGetters([
-      "githubUsername",
-      "blogTitle",
-      "blogDescribe",
-      "avatarUrl",
-      "name",
-      "location",
-      "blog",
-      "fontColor",
-      "useBackgroundImage",
-      "backgroundColorLeft",
-      "backgroundColorRight",
-      "audioUrl",
-      "mini",
-      "followersTotal",
-      "followingTotal",
-      "audioAutoPlay",
-      "webSites",
-    ]),
+    // ...mapGetters([
+    //   "githubUsername",
+    //   "blogTitle",
+    //   "blogDescribe",
+    //   "avatarUrl",
+    //   "name",
+    //   "location",
+    //   "blog",
+    //   "fontColor",
+    //   "useBackgroundImage",
+    //   "backgroundColorLeft",
+    //   "backgroundColorRight",
+    //   "audioUrl",
+    //   "mini",
+    //   "followersTotal",
+    //   "followingTotal",
+    //   "audioAutoPlay",
+    //   "webSites",
+    // ]),
   },
 };
 </script>
@@ -466,3 +448,27 @@ a {
   word-wrap: break-word;
 }
 </style>
+
+<static-query>
+  query{
+    allPageConfig{
+      edges{
+        node{
+          blogTitle,
+          blogDescribe,
+          htmlTitle,
+          fontColor,
+          useBackgroundImage,
+          backgroundColorLeft,
+          backgroundColorRight,
+          audioUrl,
+          mini,
+          webSites{
+            name,
+            url
+          }    
+        }
+      }
+    }
+  }
+</static-query>

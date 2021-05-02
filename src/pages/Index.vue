@@ -10,7 +10,7 @@ export default {
     Pager,
   },
   metaInfo: {
-    title: "Hello, world!",
+    title: "主页",
   },
 };
 </script>
