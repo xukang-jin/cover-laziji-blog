@@ -213,7 +213,29 @@
     </section>
   </div>
 </template>
-
+<static-query>
+  query{
+    allPageConfig{
+      edges{
+        node{
+          blogTitle,
+          blogDescribe,
+          htmlTitle,
+          fontColor,
+          useBackgroundImage,
+          backgroundColorLeft,
+          backgroundColorRight,
+          audioUrl,
+          mini,
+          webSites{
+            name,
+            url
+          }    
+        }
+      }
+    }
+  }
+</static-query>
 <script>
 import { mapGetters } from "vuex";
 import Sidebar from "./components/Sidebar";
@@ -240,7 +262,19 @@ export default {
         active: "",
       },
       randomIcon: [],
-      ...this.$static.pageConfig.edges.node[0],
+      blogTitle: "",
+      githubUsername: "",
+      backgroundColorLeft: "",
+      backgroundColorRight: "",
+      fontColor: "",
+      blogDescribe: "",
+      webSites: [],
+      mini: false,
+      audioAutoPlay: false,
+      audioUrl: "",
+      location: "",
+      avatarUrl: "",
+      name: "",
     };
   },
   computed: {},
@@ -251,7 +285,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      setInterval(this.listenMusic, 1000);
+      // setInterval(this.listenMusic, 1000);
     });
     let width = window.innerWidth;
     for (let i = 0; i < 12; i++) {
@@ -265,6 +299,17 @@ export default {
       temp["size"] = this.$util.randomInt(20, 40);
       this.randomIcon.push(temp);
     }
+    let { node } = this.$static.allPageConfig.edges[0];
+    this.githubUsername = node.githubUsername;
+    this.backgroundColorLeft = node.backgroundColorLeft;
+    this.backgroundColorRight = node.backgroundColorLeft;
+    this.fontColor = node.fontColor;
+    this.blogDescribe = node.blogDescribe;
+    this.webSites = node.webSites;
+    this.mini = node.mini;
+    this.audioAutoPlay = node.audioAutoPlay;
+    this.audioUrl = node.audioUrl;
+    // this.avatarUrl = node.avatarUrl;
   },
   created() {},
   methods: {
@@ -348,25 +393,6 @@ export default {
       }
       this.$refs.music.volume = this.music.volume / 100;
     },
-    // ...mapGetters([
-    //   "githubUsername",
-    //   "blogTitle",
-    //   "blogDescribe",
-    //   "avatarUrl",
-    //   "name",
-    //   "location",
-    //   "blog",
-    //   "fontColor",
-    //   "useBackgroundImage",
-    //   "backgroundColorLeft",
-    //   "backgroundColorRight",
-    //   "audioUrl",
-    //   "mini",
-    //   "followersTotal",
-    //   "followingTotal",
-    //   "audioAutoPlay",
-    //   "webSites",
-    // ]),
   },
 };
 </script>
@@ -449,26 +475,3 @@ a {
 }
 </style>
 
-<static-query>
-  query{
-    allPageConfig{
-      edges{
-        node{
-          blogTitle,
-          blogDescribe,
-          htmlTitle,
-          fontColor,
-          useBackgroundImage,
-          backgroundColorLeft,
-          backgroundColorRight,
-          audioUrl,
-          mini,
-          webSites{
-            name,
-            url
-          }    
-        }
-      }
-    }
-  }
-</static-query>
