@@ -4,9 +4,9 @@
       class="page-header"
       :style="
         'background-image: linear-gradient(120deg, ' +
-        backgroundColorLeft +
+        '#2690F9' +
         ', ' +
-        backgroundColorRight +
+        '#FC2D2D' +
         ');color: ' +
         fontColor +
         ';'
@@ -204,7 +204,9 @@
           <sidebar></sidebar>
         </el-col>
         <el-col :span="18" style="padding-left: 10px">
-          <router-view />
+          <section>
+            <transition name="fade"> <slot /> </transition>
+          </section>
         </el-col>
       </el-row>
     </section>
@@ -302,7 +304,7 @@ export default {
     let { node } = this.$static.allPageConfig.edges[0];
     this.githubUsername = node.githubUsername;
     this.backgroundColorLeft = node.backgroundColorLeft;
-    this.backgroundColorRight = node.backgroundColorLeft;
+    this.backgroundColorRight = node.backgroundColorRight;
     this.fontColor = node.fontColor;
     this.blogDescribe = node.blogDescribe;
     this.webSites = node.webSites;

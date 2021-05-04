@@ -2,21 +2,17 @@ const c1 = () => import(/* webpackChunkName: "page--src--pages--social--details-
 const c2 = () => import(/* webpackChunkName: "page--src--pages--project--details-vue" */ "/root/cover-laziji-blog/src/pages/project/Details.vue")
 const c3 = () => import(/* webpackChunkName: "page--src--pages--blog--edit-vue" */ "/root/cover-laziji-blog/src/pages/blog/Edit.vue")
 const c4 = () => import(/* webpackChunkName: "page--src--pages--blog--details-vue" */ "/root/cover-laziji-blog/src/pages/blog/Details.vue")
-const c5 = () => import(/* webpackChunkName: "page--src--pages--layout--components--sidebar-vue" */ "/root/cover-laziji-blog/src/pages/layout/components/Sidebar.vue")
-const c6 = () => import(/* webpackChunkName: "page--src--pages--blog--add-vue" */ "/root/cover-laziji-blog/src/pages/blog/Add.vue")
-const c7 = () => import(/* webpackChunkName: "page--src--pages--layout--components--foot-vue" */ "/root/cover-laziji-blog/src/pages/layout/components/Foot.vue")
-const c8 = () => import(/* webpackChunkName: "page--src--pages--layout--components--app-main-vue" */ "/root/cover-laziji-blog/src/pages/layout/components/AppMain.vue")
-const c9 = () => import(/* webpackChunkName: "page--src--pages--social--main-vue" */ "/root/cover-laziji-blog/src/pages/social/Main.vue")
-const c10 = () => import(/* webpackChunkName: "page--src--pages--readme--main-vue" */ "/root/cover-laziji-blog/src/pages/readme/Main.vue")
-const c11 = () => import(/* webpackChunkName: "page--src--pages--project--main-vue" */ "/root/cover-laziji-blog/src/pages/project/Main.vue")
-const c12 = () => import(/* webpackChunkName: "page--src--pages--index-vue" */ "/root/cover-laziji-blog/src/pages/Index.vue")
-const c13 = () => import(/* webpackChunkName: "page--src--pages--helper--main-vue" */ "/root/cover-laziji-blog/src/pages/helper/Main.vue")
-const c14 = () => import(/* webpackChunkName: "page--src--pages--common--token-dialog-vue" */ "/root/cover-laziji-blog/src/pages/common/TokenDialog.vue")
-const c15 = () => import(/* webpackChunkName: "page--src--pages--layout--layout-vue" */ "/root/cover-laziji-blog/src/pages/layout/Layout.vue")
-const c16 = () => import(/* webpackChunkName: "page--src--pages--configure--main-vue" */ "/root/cover-laziji-blog/src/pages/configure/Main.vue")
-const c17 = () => import(/* webpackChunkName: "page--src--pages--blog--main-vue" */ "/root/cover-laziji-blog/src/pages/blog/Main.vue")
-const c18 = () => import(/* webpackChunkName: "page--src--pages--error--error404-vue" */ "/root/cover-laziji-blog/src/pages/error/Error404.vue")
-const c19 = () => import(/* webpackChunkName: "page--src--pages--license-vue" */ "/root/cover-laziji-blog/src/pages/License.vue")
+const c5 = () => import(/* webpackChunkName: "page--src--pages--blog--add-vue" */ "/root/cover-laziji-blog/src/pages/blog/Add.vue")
+const c6 = () => import(/* webpackChunkName: "page--src--pages--social--main-vue" */ "/root/cover-laziji-blog/src/pages/social/Main.vue")
+const c7 = () => import(/* webpackChunkName: "page--src--pages--readme--main-vue" */ "/root/cover-laziji-blog/src/pages/readme/Main.vue")
+const c8 = () => import(/* webpackChunkName: "page--src--pages--project--main-vue" */ "/root/cover-laziji-blog/src/pages/project/Main.vue")
+const c9 = () => import(/* webpackChunkName: "page--src--pages--index-vue" */ "/root/cover-laziji-blog/src/pages/Index.vue")
+const c10 = () => import(/* webpackChunkName: "page--src--pages--helper--main-vue" */ "/root/cover-laziji-blog/src/pages/helper/Main.vue")
+const c11 = () => import(/* webpackChunkName: "page--src--pages--common--token-dialog-vue" */ "/root/cover-laziji-blog/src/pages/common/TokenDialog.vue")
+const c12 = () => import(/* webpackChunkName: "page--src--pages--configure--main-vue" */ "/root/cover-laziji-blog/src/pages/configure/Main.vue")
+const c13 = () => import(/* webpackChunkName: "page--src--pages--blog--main-vue" */ "/root/cover-laziji-blog/src/pages/blog/Main.vue")
+const c14 = () => import(/* webpackChunkName: "page--src--pages--error--error404-vue" */ "/root/cover-laziji-blog/src/pages/error/Error404.vue")
+const c15 = () => import(/* webpackChunkName: "page--src--pages--license-vue" */ "/root/cover-laziji-blog/src/pages/License.vue")
 
 export default [
   {
@@ -56,64 +52,48 @@ export default [
     }
   },
   {
-    path: "/layout/components/sidebar/",
+    path: "/user/blog/add/",
     component: c5
   },
   {
-    path: "/user/blog/add/",
+    path: "/user/social/",
     component: c6
   },
   {
-    path: "/layout/components/foot/",
+    path: "/user/readme/",
     component: c7
   },
   {
-    path: "/layout/components/app-main/",
+    path: "/user/project/",
     component: c8
   },
   {
-    path: "/user/social/",
-    component: c9
-  },
-  {
-    path: "/user/readme/",
-    component: c10
-  },
-  {
-    path: "/user/project/",
-    component: c11
-  },
-  {
     path: "/user/new/",
-    component: c12
+    component: c9
   },
   {
     path: "/social/main/",
-    component: c9
+    component: c6
   },
   {
     path: "/readme/main/",
-    component: c10
+    component: c7
   },
   {
     path: "/project/main/",
-    component: c11
+    component: c8
   },
   {
     path: "/user/helper/",
-    component: c13
+    component: c10
   },
   {
     path: "/common/token-dialog/",
-    component: c14
-  },
-  {
-    path: "/layout/layout/",
-    component: c15
+    component: c11
   },
   {
     path: "/user/configure/",
-    component: c16
+    component: c12
   },
   {
     path: "/social/details/",
@@ -121,11 +101,11 @@ export default [
   },
   {
     path: "/user/blog/",
-    component: c17
+    component: c13
   },
   {
     path: "/helper/main/",
-    component: c13
+    component: c10
   },
   {
     path: "/project/details/",
@@ -133,15 +113,15 @@ export default [
   },
   {
     path: "/configure/main/",
-    component: c16
+    component: c12
   },
   {
     path: "/blog/main/",
-    component: c17
+    component: c13
   },
   {
     path: "/error/error404/",
-    component: c18
+    component: c14
   },
   {
     path: "/blog/edit/",
@@ -153,25 +133,25 @@ export default [
   },
   {
     path: "/blog/add/",
-    component: c6
+    component: c5
   },
   {
     path: "/license/",
-    component: c19
+    component: c15
   },
   {
     name: "404",
     path: "/404/",
-    component: c18
+    component: c14
   },
   {
     name: "home",
     path: "/",
-    component: c12
+    component: c9
   },
   {
     name: "*",
     path: "*",
-    component: c18
+    component: c14
   }
 ]

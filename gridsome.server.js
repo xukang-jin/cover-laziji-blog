@@ -6,7 +6,9 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const pageConfig = require('./static/configuration.json');
-
+const gist = require('./src/api/gist');
+const project = require('./src/api/project');
+const user = require('./src/api/user')
 const pages = [
   {
     path: '/',
@@ -68,12 +70,46 @@ const pages = [
 
 
 module.exports = function (api) {
-
   api.loadSource(
-    ({ addCollection }) => {
+    async ({ addCollection }) => {
       // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-      const collection = addCollection('pageConfig');
-      collection.addNode({ ...pageConfig })
+
+      // let { data } = await gist.list({ page: 1, pageSize: 10 });
+      // const collectionNew = addCollection('newBlog');
+      // data.map(async d => {
+      //   let { data: info } = await gist.single(d.id);
+      //   let node = {
+      //     id: d.id,
+      //     description: info.description,
+      //     createTime: info.created_at,
+      //     updateTime: info.updated_at
+      //   }
+      //   for (let key in info.files) {
+      //     node["title"] = key;
+      //     node["content"] = info.files[key]["content"];
+      //   }
+      //   // console.log(node)
+      //   collectionNew.addNode({ ...node })
+      // });
+
+      const collectionConfig = addCollection('pageConfig');
+      collectionConfig.addNode({ ...pageConfig });
+
+
+      // const collectionProject = addCollection('projects');
+      // let projects = await project.list(pageConfig.githubUsername)
+      // console.log('projects', projects)
+      // projects.map(p => {
+      //   collectionProject.addNode({ ...p })
+      // })
+
+      // const collectionUser = addCollection('usersInfo');
+      // let { data: users } = await user.info();
+
+      // let { data: followers } = await user.followers({ page: 1, pageSize: 10 })
+
+      // let { data: following } = await user.following({ page: 1, pageSize: 10 })
+
     }
   )
 

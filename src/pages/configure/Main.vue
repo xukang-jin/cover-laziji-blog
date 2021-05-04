@@ -175,6 +175,29 @@
     </div>
   </Layout>
 </template>
+<static-query>
+  query{
+    allPageConfig{
+      edges{
+        node{
+          blogTitle,
+          blogDescribe,
+          htmlTitle,
+          fontColor,
+          useBackgroundImage,
+          backgroundColorLeft,
+          backgroundColorRight,
+          audioUrl,
+          mini,
+          webSites{
+            name,
+            url
+          }    
+        }
+      }
+    }
+  }
+</static-query>
 <script>
 import { mapGetters } from "vuex";
 import ProjectApi from "@/api/project";
@@ -215,6 +238,7 @@ export default {
         "#c71585",
         "#FC2DEB",
       ],
+      githubUsername: "",
     };
   },
   computed: {
@@ -232,6 +256,9 @@ export default {
       return;
     }
     this.loading = true;
+    let { node } = this.$static.allPageConfig.edges[0];
+    this.githubUsername = node.githubUsername;
+
     ProjectApi.getBlogConfigure()
       .then((response) => {
         let result = response.data;

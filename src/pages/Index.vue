@@ -1,7 +1,12 @@
 <template>
   <Layout>
     <div style="min-height: 600px" v-loading="loading">
-      <el-card shadow="never" style="min-height: 400px" v-if="blog.id">
+      <el-card
+        shadow="never"
+        style="min-height: 400px"
+        v-for="blog in blogs"
+        :key="blog.id"
+      >
         <div slot="header">
           <span>{{ blog.title }}</span>
         </div>
@@ -43,7 +48,8 @@
   </Layout>
 </template>
 <script>
-import GistApi from "@/api/gist";
+<static-query></static-query>;
+// import GistApi from "@/api/gist";
 export default {
   data() {
     return {
@@ -52,14 +58,15 @@ export default {
         pageSize: 1,
       },
       loading: false,
-      blog: {
-        id: "",
-        title: "",
-        content: "",
-        description: "",
-        createTime: "",
-        updateTime: "",
-      },
+      blogs: [],
+      // {
+      //   id: "",
+      //   title: "",
+      //   content: "",
+      //   description: "",
+      //   createTime: "",
+      //   updateTime: "",
+      // },
     };
   },
   mounted() {
