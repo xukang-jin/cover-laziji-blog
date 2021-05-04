@@ -9,56 +9,60 @@ const pageConfig = require('./static/configuration.json');
 
 const pages = [
   {
+    path: '/',
+    component: './src/pages/Index.vue'
+  },
+  {
     path: '/user/new',
-    component: './src/views/new/Main.vue'
+    component: './src/pages/Index.vue'
   },
   {
     path: '/user/social',
-    component: './src/views/social/Main.vue'
+    component: './src/pages/social/Main.vue'
   },
   {
     path: '/user/social/details/:name',
-    component: './src/views/social/Details.vue'
+    component: './src/pages/social/Details.vue'
   },
   {
     path: '/user/blog',
-    component: './src/views/blog/Main.vue'
+    component: './src/pages/blog/Main.vue'
   },
   {
     path: '/user/blog/add',
-    component: './src/views/blog/Add.vue'
+    component: './src/pages/blog/Add.vue'
   },
   {
     path: '/user/blog/edit/:id',
-    component: './src/views/blog/Edit.vue'
+    component: './src/pages/blog/Edit.vue'
   },
   {
     path: '/user/blog/details/:id',
-    component: './src/views/blog/Details.vue'
+    component: './src/pages/blog/Details.vue'
   },
   {
     path: '/user/project',
-    component: './src/views/project/Main.vue'
+    component: './src/pages/project/Main.vue'
   },
   {
     path: '/user/project/details/:name',
-    component: './src/views/project/Details.vue'
+    component: './src/pages/project/Details.vue'
   },
   {
     path: '/user/helper',
-    component: './src/views/helper/Main.vue'
+    component: './src/pages/helper/Main.vue'
   },
   {
     path: '/user/readme',
-    component: './src/views/readme/Main.vue'
+    component: './src/pages/readme/Main.vue'
   },
   {
     path: '/user/configure',
-    component: './src/views/configure/Main.vue'
+    component: './src/pages/configure/Main.vue'
   },
   {
     path: '/404',
-    component: './src/views/error/Error404.vue',
+    component: './src/pages/error/Error404.vue',
   }
 ]
 
@@ -73,8 +77,9 @@ module.exports = function (api) {
     }
   )
 
-  api.createPages(({ createPage }) => {
+  api.createPages(params => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
+    const { createPage } = params;
     pages.map(page => {
       createPage(page);
     })

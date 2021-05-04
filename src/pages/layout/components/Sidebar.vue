@@ -4,11 +4,17 @@
       <el-menu :default-active="active" @select="onSelect">
         <el-menu-item
           v-for="item in constantRouterMap"
+          v-if="
+            item.meta &&
+            item.meta.type == 'user' &&
+            (token || !item.meta.LoginRequired) &&
+            (!mini || !item.meta.mini)
+          "
           :key="item.path"
           :index="item.path"
         >
-          <i :class="item.meta ? item.meta.icon : ''"></i>
-          <span slot="title">{{ item.meta ? item.meta.title : "" }}</span>
+          <i :class="item.meta.icon"></i>
+          <span slot="title">{{ item.meta.title }}</span>
         </el-menu-item>
       </el-menu>
     </el-card>
@@ -43,18 +49,7 @@
     <token-dialog ref="tokenDialog"></token-dialog>
   </div>
 </template>
-<static-query>
-  query{
-    allPageConfig{
-      edges{
-        node{
-          githubUsername,
-          mini,    
-        }
-      }
-    }
-  }
-</static-query>
+
 <script>
 import { mapGetters } from "vuex";
 import { constantRouterMap } from "@/router";
@@ -69,21 +64,14 @@ export default {
       active: "",
       parentUrl: "",
       menuList: [],
-      token: "",
-      mini: false,
-      githubUsername: "",
     };
   },
-  // computed: {
-  //   ...mapGetters(["token", "githubUsername", "mini"]),
-  // },
+  computed: {
+    ...mapGetters(["token", "githubUsername", "mini"]),
+  },
   mounted() {
     let arr = this.$route.path.split("/");
-    console.log(arr);
     this.active = "/" + arr[1] + "/" + arr[2];
-    let { node } = this.$static.allPageConfig.edges[0];
-    this.githubUsername = node.githubUsername;
-    this.mini = node.mini;
   },
   methods: {
     onSelect(index) {
@@ -95,7 +83,6 @@ export default {
     cancellation() {
       this.$store.dispatch("Cancellation");
     },
-    // ...mapGetters(["token", "githubUsername", "mini"]),
   },
 };
 </script>

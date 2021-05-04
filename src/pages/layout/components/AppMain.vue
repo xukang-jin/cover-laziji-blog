@@ -1,6 +1,8 @@
 <template>
   <section>
-    <transition name="fade"> <slot /> </transition>
+    <transition name="fade">
+      <slot />
+    </transition>
   </section>
 </template>
 

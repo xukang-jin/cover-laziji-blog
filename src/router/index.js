@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import store from '../store/index'
 import Router from 'vue-router'
-import Error404 from '@/views/error/Error404'
+import Error404 from '@/pages/error/Error404'
 import Layout from '@/pages/Index'
 
-import NewMain from '@/views/new/Main'
-import SocialMain from '@/views/social/Main'
-import SocialDetails from '@/views/social/Details'
-import BlogMain from '@/views/blog/Main'
-import BlogAdd from '@/views/blog/Add'
-import BlogEdit from '@/views/blog/Edit'
-import BlogDetails from '@/views/blog/Details'
-import ProjectMain from '@/views/project/Main'
-import ProjectDetails from '@/views/project/Details'
-import ReadmeMain from '@/views/readme/Main'
-import ConfigureMain from '@/views/configure/Main'
-import HelperMain from '@/views/helper/Main'
+// import NewMain from '@/pages/new/Main'
+import SocialMain from '@/pages/social/Main'
+import SocialDetails from '@/pages/social/Details'
+import BlogMain from '@/pages/blog/Main'
+import BlogAdd from '@/pages/blog/Add'
+import BlogEdit from '@/pages/blog/Edit'
+import BlogDetails from '@/pages/blog/Details'
+import ProjectMain from '@/pages/project/Main'
+import ProjectDetails from '@/pages/project/Details'
+import ReadmeMain from '@/pages/readme/Main'
+import ConfigureMain from '@/pages/configure/Main'
+import HelperMain from '@/pages/helper/Main'
 
 
 Vue.use(Router)
@@ -33,7 +33,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'main',
-        component: NewMain,
+        component: Layout,
         meta: { title: '最新动态' }
       }
     ]

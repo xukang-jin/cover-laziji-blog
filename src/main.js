@@ -7,7 +7,7 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import 'mavon-editor/dist/markdown/github-markdown.min.css'
 import store from './store'
-
+import routerConfig from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -16,7 +16,7 @@ import 'vant/lib/vant-css/index.css'
 
 
 export default function (Vue, { router, head, isClient }) {
-
+  console.log('router', router)
   Vue.use(Vant)
   Vue.use(ElementUI)
   Vue.use(mavonEditor)
@@ -27,9 +27,9 @@ export default function (Vue, { router, head, isClient }) {
 
   Vue.prototype.$reload = function (context) {
     console.log('reload event')
-    // let NewPage = '/empty'
-    // context.$router.push(NewPage)
-    // context.$nextTick(() => (context.$router.go(-1)))
+    let NewPage = '/empty'
+    context.$router.push(NewPage)
+    context.$nextTick(() => (context.$router.go(-1)))
   }
 
   Vue.prototype.$setTitle = function (title) {

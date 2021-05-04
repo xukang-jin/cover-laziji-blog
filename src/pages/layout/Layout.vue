@@ -350,7 +350,7 @@ export default {
       }
       this.music.isPlay = !this.$refs.music.paused;
       this.$nextTick(() => {
-        document.getElementById("play").blur();
+        // document.getElementById("play").blur();
       });
     },
     changeTime(time) {
