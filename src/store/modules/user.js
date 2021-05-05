@@ -1,4 +1,4 @@
-import UserApi from '@/api/user'
+import UserApi from '../../api/user'
 
 
 const user = {

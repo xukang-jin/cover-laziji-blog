@@ -1,4 +1,4 @@
-
+import configurationData from '../../../static/configuration.js'
 const configuration = {
     state: {
         githubUsername: "",
@@ -49,16 +49,17 @@ const configuration = {
             commit('SET_CONFIGURATION', configuration)
         },
         Init({ commit }) {
-            let xmlhttp
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest()
-            } else {
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
-            }
-            xmlhttp.open("GET", "../../../static/configuration.json", false)
-            xmlhttp.send()
-            let configuration = JSON.parse(xmlhttp.responseText)
-            commit('SET_CONFIGURATION', configuration)
+            // let xmlhttp
+            // if (window.XMLHttpRequest) {
+            //     xmlhttp = new XMLHttpRequest()
+            // } else {
+            //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+            // }
+            // xmlhttp.open("GET", "../../../static/configuration.json", false)
+            // xmlhttp.send()
+
+            // let configuration = JSON.parse(xmlhttp.responseText)
+            commit('SET_CONFIGURATION', configurationData)
         }
     }
 }
